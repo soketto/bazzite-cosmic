@@ -42,6 +42,7 @@ modules:
         - fcitx5-gtk
         - kcm-fcitx5
         - cutecosmic-qt6
+        - greetd-selinux
         - repo: copr:copr.fedorainfracloud.org:kordus:cosmic-applets
           packages:
             - cosmic-ext-applet-clipboard-manager
