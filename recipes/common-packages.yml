@@ -39,11 +39,11 @@ modules:
         - xdg-desktop-portal-cosmic
         - fcitx5-configtool
         - fcitx5-mozc
-        - fcitx5-chinese-addons
         - fcitx5-gtk
-        - fcitx5-hangul
         - kcm-fcitx5
         - cutecosmic-qt6
+        - https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-1.8.0-1.x86_64.rpm
+        - https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-ui-1.8.0-1.noarch.rpm
         - repo: copr:copr.fedorainfracloud.org:kordus:cosmic-applets
           packages:
             - cosmic-ext-applet-clipboard-manager
@@ -79,5 +79,6 @@ modules:
     system:
       enabled:
         - cosmic-greeter
+        - opensnitch
 
   - type: signing

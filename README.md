@@ -1,41 +1,29 @@
-# Bazzite COSMIC &nbsp; [![bluebuild build badge](https://github.com/koitorin/bazzite-cosmic/actions/workflows/build.yml/badge.svg)](https://github.com/koitorin/bazzite-cosmic/actions/workflows/build.yml)
+# Bazzite COSMIC &nbsp; [![bluebuild build badge](https://github.com/soketto/bazzite-cosmic/actions/workflows/build.yml/badge.svg)](https://github.com/soketto/bazzite-cosmic/actions/workflows/build.yml)
 
-This is an experimental image built from Bazzite GNOME images, adding COSMIC DE from the [COPR](https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/), COSMIC apps, and some small tweaks. As the COSMIC DE is still in alpha, be aware that there are still constant bugs and missing features (e.g. night light).
+Custom image built from Bazzite GNOME images, adding COSMIC DE from the [COPR](https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/), COSMIC apps, and some small tweaks. As the COSMIC DE is still in alpha, be aware that there are still constant bugs and missing features (e.g. night light).
+
+Forked from [koitorin/bazzite-cosmic](https://github.com/koitorin/bazzite-cosmic), trimmed down and personalised to my own taste.
 
 ### List of tweaks
-- Added Fcitix5 as workaround for Japanese, Korean, and Chinese input. ([Issue upstream](https://github.com/pop-os/cosmic-epoch/issues/104))
+- Added Fcitx5 as workaround for Japanese input. ([Issue upstream](https://github.com/pop-os/cosmic-epoch/issues/104))
 - Added [adicional COSMIC applets](https://copr.fedorainfracloud.org/coprs/wiiznokes/cosmic-applets-unofficial/).
 - Added [COSMIC flatpak repo](https://github.com/pop-os/cosmic-flatpak) by default, for apps that are not suitable for Flathub.
+- Added **opensnitch** + opensnitch-ui application firewall.
 
-## Rebase from bazzite-gnome* or any Silverblue based image (pick one of them)
+## Rebase
 
 ### AMD/Intel
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-cosmic:latest
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/soketto/bazzite-cosmic:latest
 ```
-### Nvidia Turing or later (RTX | GTX 16xx)
+
+### Nvidia Turing or later
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-cosmic-nvidia-open:latest
-```
-### Nvidia Legacy (GTX 9xx-10xx)
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-cosmic-nvidia:latest
-```
-### Developer Experience version (AMD/Intel)
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-dx-cosmic:latest
-```
-### Developer Experience version (RTX | GTX 16xx)
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-dx-cosmic-nvidia-open:latest
-```
-### Developer Experience version (GTX 9xx-10xx; based on [this image](https://github.com/Lumaeris/bazzite-ldx-nvidia))
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-dx-cosmic-nvidia:latest
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/soketto/bazzite-cosmic-nvidia-open:latest
 ```
 
 ### Rebase to the signed image
-Swap `<image>` to the one you're using (bazzite-cosmic, bazzite-nvidia-open, or bazzite-nvidia).
 ```bash
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/koitorin/<image>:latest
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/soketto/bazzite-cosmic:latest
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/soketto/bazzite-cosmic-nvidia-open:latest
 ```
