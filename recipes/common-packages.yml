@@ -51,7 +51,7 @@ modules:
     snippets:
       - curl -sLo /tmp/opensnitch.rpm https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-1.8.0-1.x86_64.rpm
       - curl -sLo /tmp/opensnitch-ui.rpm https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-ui-1.8.0-1.noarch.rpm
-      - rpm -Uvh --noscripts /tmp/opensnitch*.rpm
+      - dnf5 install -y --setopt=tsflags=noscripts /tmp/opensnitch*.rpm
 
   # copying system files over to the system
   - type: files
