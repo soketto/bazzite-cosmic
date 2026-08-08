@@ -42,11 +42,16 @@ modules:
         - fcitx5-gtk
         - kcm-fcitx5
         - cutecosmic-qt6
-        - https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-1.8.0-1.x86_64.rpm
-        - https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-ui-1.8.0-1.noarch.rpm
         - repo: copr:copr.fedorainfracloud.org:kordus:cosmic-applets
           packages:
             - cosmic-ext-applet-clipboard-manager
+
+  # Install opensnitch RPMs directly, skipping scriptlets (systemctl fails in container)
+  - type: script
+    snippets:
+      - curl -sLo /tmp/opensnitch.rpm https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-1.8.0-1.x86_64.rpm
+      - curl -sLo /tmp/opensnitch-ui.rpm https://github.com/evilsocket/opensnitch/releases/download/v1.8.0/opensnitch-ui-1.8.0-1.noarch.rpm
+      - rpm -Uvh --noscripts /tmp/opensnitch*.rpm
 
   # copying system files over to the system
   - type: files
